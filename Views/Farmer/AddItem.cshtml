@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "AddItem";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+    <style>
+        /* Add any custom styles for the login page here */
+        #AddProductForm {
+            text-align: center;
+        }
+
+            #AddProductForm input[type="text"],
+            #AddProductForm input[type="password"],
+            #AddProductForm input[type="date"] {
+                width: 200px;
+                padding: 5px;
+                margin-bottom: 10px;
+                margin-left: 5px;
+            }
+
+            #AddProductForm button[type="submit"] {
+                margin-top: 10px;
+                width: 150px;
+                padding: 8px;
+            }
+    </style>
+</head>
+<body>
+    <div id="AddProductForm">
+        <h2>Add Product</h2>
+        <form method="post" action="/Farmer/InsertNewProduct">
+            <div>
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+            </div>
+            <div>
+                <button type="submit">Add Product</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Create Farmer";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Farmer</title>
+    <style>
+        /* Add any custom styles for the login page here */
+        #AddFarmerForm {
+            text-align: center;
+        }
+
+            #AddFarmerForm input[type="text"],
+            #AddFarmerForm input[type="password"],
+            #AddFarmerForm input[type="date"] {
+                width: 200px;
+                padding: 5px;
+                margin-bottom: 10px;
+                margin-left: 5px;
+            }
+
+            #AddFarmerForm button[type="submit"] {
+                margin-top: 10px;
+                width: 150px;
+                padding: 8px;
+            }
+    </style>
+</head>
+<body>
+    <div id="AddFarmerForm">
+        <h2>Add Farmer</h2>
+        <form method="post" action="/Employee/CreateFarmer">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password" required>
+            </div>
+            <div>
+                <label for="datejoined">Date Joined:</label>
+                <input type="date" id="datejoined" name="datejoined" required>
+            </div>
+            <div>
+                <button type="submit">Add Farmer</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

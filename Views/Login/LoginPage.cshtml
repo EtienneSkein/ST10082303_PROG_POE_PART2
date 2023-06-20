@@ -1,0 +1,146 @@
+﻿
+@{
+
+    ViewBag.Title = "LoginPage";
+    Layout = "~/Views/Login/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        /* Add any custom styles for the login page here */
+        .login-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .login-form {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .login-form h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+            .form-field label {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .form-field input[type="text"],
+            .form-field input[type="password"] {
+                padding: 8px;
+                border-radius: 3px;
+                border: 1px solid #ccc;
+            }
+
+        .toggle-switch-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .toggle-switch-checkbox {
+            display: none;
+        }
+
+        .toggle-switch-label {
+            position: relative;
+            width: 50px;
+            height: 24px;
+            background-color: #ccc;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.4s;
+        }
+
+            .toggle-switch-label:before {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                left: 2px;
+                top: 2px;
+                background-color: white;
+                transition: transform 0.4s;
+            }
+
+        .toggle-switch-checkbox:checked + .toggle-switch-label {
+            background-color: #2196F3;
+            width: 100%;
+        }
+
+            .toggle-switch-checkbox:checked + .toggle-switch-label:before {
+                transform: translateX(26px);
+            }
+
+        .toggle-switch-label span {
+            margin-left: 10px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 8px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form method="post" action="/Login/CheckCreds">
+                <div class="form-field">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-field">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="toggle-switch-wrapper">
+                    <input type="checkbox" id="toggle" name="toggle" class="toggle-switch-checkbox">
+                    <label class="toggle-switch-label" for="toggle"></label>
+                    <span>Farmer</span>
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle switch logic
+        const toggleSwitch = document.getElementById('toggle');
+        const toggleLabel = document.querySelector('.toggle-switch-wrapper span');
+
+        toggleSwitch.addEventListener('change', function () {
+            if (this.checked) {
+                toggleLabel.textContent = 'Employee';
+            } else {
+                toggleLabel.textContent = 'Farmer';
+            }
+        });
+    </script>
+</body>
+</html>
